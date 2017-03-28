@@ -13,18 +13,31 @@ The main reason to use Sinon is because of its extensive mock library.
 
 ## Why would you mock a database and how does this help with testing?
 
+1. If you were to directly test a database/an API we're relying too heavily on another party. For example, if there is a connection error, if the API fails for whatever reason this will ruin your tests, but by injecting a fake database/api into your tests you remove this liability.
+
 There are three major features to take into consideration: **Spies**, **Stubs** and **Mocks**.
 They are all similar in that they provide ways in which to replace a given class's dependencies so that the class can be tested in isolation.
 
 **Spies.**
 Test doubles, or spies, get information about function calls and are useful if you want to verify that something happened. You can call spy either as an anonymous function or wrap it in an existing function.
 
+Spies are most often used for callbacks.
+```sh
+"test should call subscribers on publish": function () {
+  var callback = sinon.spy();
+  PubSub.subscribe("message", callback);
+  PubSub.publishSync("message");
+
+  assertTrue(callback.called);
+}
+```
+
 **Stubs.**
 Mechanism for injecting data directly into the class.
 More versatile than spies and they have additional functionality. They replace the original code, and you never call the function that was originally there.
 There are two scenarios in which to use stubs.
 1. When you want to control the way code behaves, e.g. to test for error handling.
-2. When you have a function with an async call but you don't want to wait for the results to come back.
+2. When you have a function with an async call but you don't want to wait for the results to come back
 
 **Mocks.**
 The hardest to use. They're like spies and stubs, but they have expectations that are stated upfront. So when you use these you need to be careful as you might make your tests overly specific and this will make your tests more brittle.
