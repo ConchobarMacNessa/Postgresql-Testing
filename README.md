@@ -15,6 +15,10 @@ The main reason to use Sinon is because of its extensive mock library.
 
 1. If you were to directly test a database/an API we're relying too heavily on another party. For example, if there is a connection error, if the API fails for whatever reason this will ruin your tests, but by injecting a fake database/api into your tests you remove this liability.
 
+2. Testing doubles are used to test functions with side effects.
+
+## Research the Sinon mock library
+
 There are three major features to take into consideration: **Spies**, **Stubs** and **Mocks**.
 They are all similar in that they provide ways in which to replace a given class's dependencies so that the class can be tested in isolation.
 
@@ -34,7 +38,7 @@ Spies are most often used for callbacks.
 
 **Stubs.**
 Mechanism for injecting data directly into the class.
-More versatile than spies and they have additional functionality. They replace the original code, and you never call the function that was originally there.
+More versatile than spies and they have additional functionality, they have prepogrammed behaviour, which spies do not. They replace the original code, and you never call the function that was originally there.
 There are two scenarios in which to use stubs.
 1. When you want to control the way code behaves, e.g. to test for error handling.
 2. When you have a function with an async call but you don't want to wait for the results to come back
@@ -47,6 +51,7 @@ In general, you should only use a max of one mock per test.
 ![screen shot 2017-03-28 at 16 06 00](https://cloud.githubusercontent.com/assets/16895125/24412504/8abfe3be-13d0-11e7-85f7-a8f575be8b5d.png)
 
 Resources:
+- [Sinon.js in Real-Life](https://codeutopia.net/docs/sinon-pdf/sinon-guide.pdf)
 - [Advanced Unit Testing Techniques in JavaScript](https://code.tutsplus.com/tutorials/advanced-unit-testing-techniques-in-javascript--net-32892)
 - [Mocks, Stubs and Fakes, youtube video](https://www.youtube.com/watch?v=qFaBHHg6RQU)
 - [How to use Sinon.JS, a mocking library for testing, youtube video](https://www.youtube.com/watch?v=SvudHPTEsIk&t=321s)
