@@ -1,6 +1,6 @@
 # PostgreSQL Testing
 
-- **What JavaScript / Node.js tools are available for testing a database?**
+## What JavaScript / Node.js tools are available for testing a database?
 
 Frameworks for testing PostgreSQL:
 - [PGtest](https://www.npmjs.com/package/pgtest)
@@ -10,7 +10,8 @@ Frameworks for testing PostgreSQL:
 
 The main reason to use Sinon is because of its extensive mock library.
 
-- **Why would you mock a database and how does this help with testing?**
+
+## Why would you mock a database and how does this help with testing?
 
 There are three major features to take into consideration: **Spies**, **Stubs** and **Mocks**.
 They are all similar in that they provide ways in which to replace a given class's dependencies so that the class can be tested in isolation.
